@@ -2,11 +2,11 @@ name: "dev-web"
 
 on:
   push:
-    branches: [ master ]
+    branches: [master, main]
 
 env:
   GODOT_VERSION: 3.2.3
-  EXPORT_NAME: Pixelorama
+  EXPORT_NAME: CozyPixelStudio
 
 jobs:
   export-web:
