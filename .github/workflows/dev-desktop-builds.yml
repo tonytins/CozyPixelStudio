@@ -2,13 +2,13 @@ name: "dev-desktop-builds"
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [master, main]
   pull_request:
-    branches: [ master, main ]
-    paths-ignore: 
-    - "Translations/*"
-    - "installer/*.pot"
-    - "installer/po/*"
+    branches: [master, main]
+    paths-ignore:
+      - "Translations/*"
+      - "installer/*.pot"
+      - "installer/po/*"
 
 env:
   GODOT_VERSION: 3.2.3
@@ -42,10 +42,10 @@ jobs:
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Windows Build 🔧
         run: godot -v --export "Windows Desktop 64-bit" ./build/windows-64bit/$EXPORT_NAME.exe
-      - name: Copy pixelorama_data folder 📁
+      - name: Copy cozypixelstudio_data folder 📁
         run: |
-          cp -R ./pixelorama_data ./build/windows-64bit
-          rm ./build/windows-64bit/pixelorama_data/.gdignore
+          cp -R ./cozypixelstudio_data ./build/windows-64bit
+          rm ./build/windows-64bit/cozypixelstudio_data/.gdignore
       - name: Upload Artifact 🚀
         uses: actions/upload-artifact@v2
         with:
@@ -70,12 +70,11 @@ jobs:
       - name: Linux Build 🔧
         run: godot -v --export "Linux/X11 64-bit" ./build/linux-64bit/$EXPORT_NAME.x86_64
       - name: Give execute permission ☑️
-        run: 
-          chmod +x ./build/linux-64bit/$EXPORT_NAME.x86_64
-      - name: Copy pixelorama_data folder 📁
+        run: chmod +x ./build/linux-64bit/$EXPORT_NAME.x86_64
+      - name: Copy cozypixelstudio_data folder 📁
         run: |
-          cp -R ./pixelorama_data ./build/linux-64bit
-          rm ./build/linux-64bit/pixelorama_data/.gdignore
+          cp -R ./cozypixelstudio_data ./build/linux-64bit
+          rm ./build/linux-64bit/cozypixelstudio_data/.gdignore
       - name: Create tar.gz archive 🗜️
         run: |
           cd build
@@ -123,10 +122,10 @@ jobs:
           rm ./build/mac/CozyPixelStudio.zip
       - name: Fix application icon 🖼
         run: sips -s format icns ./build/mac/CozyPixelStudio.app/Contents/Resources/icon.icns --out ./build/mac/CozyPixelStudio.app/Contents/Resources/icon.icns
-      - name: Copy pixelorama_data folder 📁
+      - name: Copy cozypixelstudio_data folder 📁
         run: |
-          cp -R ./pixelorama_data ./build/mac/CozyPixelStudio.app/Contents/MacOS
-          rm ./build/mac/CozyPixelStudio.app/Contents/MacOS/pixelorama_data/.gdignore
+          cp -R ./cozypixelstudio_data ./build/mac/CozyPixelStudio.app/Contents/MacOS
+          rm ./build/mac/CozyPixelStudio.app/Contents/MacOS/cozypixelstudio_data/.gdignore
       - name: Create DMG archive 🔧
         run: hdiutil create -size 70m -srcfolder ./build/mac -volname CozyPixelStudio ./build/mac/CozyPixelStudio.dmg
       - name: Upload Artifact 🚀

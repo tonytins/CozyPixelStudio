@@ -12,8 +12,8 @@ var raw_xdg_data_dirs : Array
 const default_xdg_data_home_rel := ".local/share"
 const default_xdg_data_dirs := ["/usr/local/share", "/usr/share"]
 
-const config_subdir_name := "pixelorama_data"
-const xdg_config_subdir_name := "pixelorama"
+const config_subdir_name := "cozypixelstudio_data"
+const xdg_config_subdir_name := "cozypixelstudio"
 
 const palettes_data_subdirectory := "Palettes"
 const brushes_data_subdirectory := "Brushes"

@@ -2,19 +2,17 @@
 
 [![Pixelorama's UI](https://static.wixstatic.com/media/673cdd_061f5f9602ea4c35b6d4f3c50713d36a~mv2.png)](https://www.youtube.com/watch?v=NLb0TNxZ27E&list=PLVEP1Zz6BUpBiQC0CB6eNBhhLF4tEwBB-&index=10)
 
-<p align="center">
-    <ul style="list-style: none;">
-    <li>Pixelorama made by Orama Interactive</li>
-    <li>Cozy Pixel Studio made by Tony Bark</li>
-    <li>Splash screen art by Wishdream</li>
-    </ul>
-</p>
-
-Cozy Pixel Studio is a derivative of Pixelorama meant to study programming and designing interfaces in Godot. **These builds are not meant for production use**.
+Cozy Pixel Studio is a pixel art editor derived from Pixelorama. It's a hobby project meant to study programming and designing interfaces in Godot. **Cozy Pixel Studio is not meant for production use**, but I appreciate anyone willing to test my builds and give feedback. All settings and customizations are independent of Pixelorama to avoid any future incompatibles.
 
 ## Documentation
 
 You can find Online Documentation for Pixelorama here: https://orama-interactive.github.io/Pixelorama-Docs
+
+## Authors
+
+- Pixelorama made by Orama Interactive
+- Cozy Pixel Studio made by Tony Bark
+- Splash screen art by Wishdream
 
 ## Special thanks to
 

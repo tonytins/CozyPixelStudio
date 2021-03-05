@@ -149,6 +149,10 @@ window/per_pixel_transparency/enabled=true
 window/per_pixel_transparency/allowed.HTML5=false
 window/per_pixel_transparency/enabled.HTML5=false
 
+[gui]
+
+theme/use_hidpi=true
+
 [importer_defaults]
 
 texture={

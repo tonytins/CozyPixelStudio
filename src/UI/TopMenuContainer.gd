@@ -157,7 +157,7 @@ func setup_help_menu() -> void:
 		"Online Docs" : InputMap.get_action_list("open_docs")[0].get_scancode_with_modifiers(),
 		"Issue Tracker" : 0,
 		"Changelog" : 0,
-		"About Pixelorama" : 0
+		"About Cozy Pixel Studio" : 0
 		}
 	var help_menu : PopupMenu = Global.help_menu.get_popup()
 
@@ -209,7 +209,7 @@ func on_open_last_project_file_menu_option_pressed() -> void:
 	if Global.config_cache.has_section_key("preferences", "last_project_path"):
 		Global.control.load_last_project()
 	else: # if not then warn user that he didn't edit any project yet
-		Global.error_dialog.set_text("You haven't saved or opened any project in Pixelorama yet!")
+		Global.error_dialog.set_text("You haven't saved or opened any project in Cozy Pixel Studio yet!")
 		Global.error_dialog.popup_centered()
 		Global.dialog_open(true)
 
@@ -469,13 +469,13 @@ func help_menu_id_pressed(id : int) -> void:
 		HelpMenuId.ONLINE_DOCS:
 			OS.shell_open("https://orama-interactive.github.io/Pixelorama-Docs/")
 		HelpMenuId.ISSUE_TRACKER:
-			OS.shell_open("https://github.com/Orama-Interactive/Pixelorama/issues")
+			OS.shell_open("https://github.com/tonytins/CozyPixelStudio/issues")
 		HelpMenuId.CHANGELOG:
 			if OS.get_name() == "OSX":
 				# Issue #275 - remove when macOS builds use Godot 3.2.3
-				OS.shell_open("https://github.com/Orama-Interactive/Pixelorama/blob/master/CHANGELOG.md")
+				OS.shell_open("https://github.com/tonytins/CozyPixelStudio/blob/master/CHANGELOG.md")
 			else:
-				OS.shell_open("https://github.com/Orama-Interactive/Pixelorama/blob/master/CHANGELOG.md#v082---2020-12-12")
+				OS.shell_open("https://github.com/tonytins/CozyPixelStudio/blob/master/CHANGELOG.md#v082---2020-12-12")
 		HelpMenuId.ABOUT_PIXELORAMA:
 			Global.control.get_node("Dialogs/AboutDialog").popup_centered()
 			Global.dialog_open(true)

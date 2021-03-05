@@ -73,6 +73,11 @@ margin_bottom = 388.0
 margin_right = 617.0
 
 [node name="AboutDialog" parent="Dialogs" instance=ExtResource( 34 )]
+visible = false
+margin_left = 233.0
+margin_top = 157.0
+margin_right = 833.0
+margin_bottom = 557.0
 
 [node name="UnsavedCanvasDialog" type="ConfirmationDialog" parent="Dialogs"]
 margin_right = 467.0
