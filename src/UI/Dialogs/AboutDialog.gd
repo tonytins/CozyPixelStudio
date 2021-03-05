@@ -3,11 +3,13 @@ extends WindowDialog
 onready var credits = $AboutUI/Credits
 onready var groups : Tree = $AboutUI/Credits/Groups
 onready var developer_container = $AboutUI/Credits/Developers
+onready var pixelorama_developer_container = $AboutUI/Credits/PixeloramaDevelopers
 onready var contributors_container = $AboutUI/Credits/Contributors
 onready var donors_container = $AboutUI/Credits/Donors
 onready var translators_container = $AboutUI/Credits/Translators
 
 onready var developers : Tree = $AboutUI/Credits/Developers/DeveloperTree
+onready var pixelorama_developers : Tree = $AboutUI/Credits/PixeloramaDevelopers/DeveloperTree
 onready var contributors : Tree = $AboutUI/Credits/Contributors/ContributorTree
 onready var donors : Tree = $AboutUI/Credits/Donors/DonorTree
 onready var translators : Tree = $AboutUI/Credits/Translators/TranslatorTree
@@ -38,6 +40,7 @@ func _on_AboutDialog_about_to_show() -> void:
 
 	var groups_root := groups.create_item()
 	var developers_button := groups.create_item(groups_root)
+	var pixelorama_developers_button := groups.create_item(groups_root)
 	var contributors_button := groups.create_item(groups_root)
 	var donors_button := groups.create_item(groups_root)
 	var translators_button := groups.create_item(groups_root)
@@ -46,6 +49,8 @@ func _on_AboutDialog_about_to_show() -> void:
 	# We use metadata to avoid being affected by translations
 	developers_button.set_metadata(0, "Developers")
 	developers_button.select(0)
+	pixelorama_developers_button.set_metadata(0, "Pixelorama")
+	pixelorama_developers_button.set_text(0, "  " + tr("Pixelorama"))
 	contributors_button.set_text(0,  "  " + tr("Contributors"))
 	contributors_button.set_metadata(0, "Contributors")
 	donors_button.set_text(0,  "  " + tr("Donors"))
@@ -54,6 +59,7 @@ func _on_AboutDialog_about_to_show() -> void:
 	translators_button.set_metadata(0, "Translators")
 
 	create_developers()
+	create_pixelorama_developers()
 	create_translators()
 
 func _on_AboutDialog_popup_hide() -> void:
@@ -70,6 +76,8 @@ func _on_Groups_item_selected() -> void:
 	var selected : String = groups.get_selected().get_metadata(0)
 	if "Developers" in selected:
 		developer_container.visible = true
+	elif "Pixelorama" in selected:
+		pixelorama_developer_container.visible = true
 	elif "Contributors" in selected:
 		contributors_container.visible = true
 	elif "Donors" in selected:
@@ -93,9 +101,12 @@ func _on_Donate_pressed() -> void:
 func create_developers() -> void:
 	var dev_root := developers.create_item()
 	developers.create_item(dev_root).set_text(0, "  Tony Bark (tonytins) - " + tr("Programmer"))
-	developers.create_item(dev_root).set_text(0, "  Manolis Papadeas (Overloaded) - " + tr("Pixelorama Programmer"))
-	developers.create_item(dev_root).set_text(0, "  John Nikitakis (Erevos) - " + tr("Pixelorama UI Designer"))
 
+
+func create_pixelorama_developers() -> void:
+	var dev_root := pixelorama_developers.create_item()
+	pixelorama_developers.create_item(dev_root).set_text(0, "  Manolis Papadeas (Overloaded) - " + tr("Lead Programmer"))
+	pixelorama_developers.create_item(dev_root).set_text(0, "  John Nikitakis (Erevos) - " + tr("UI Designer"))
 
 func create_donors() -> void:
 	var donors_root := donors.create_item()
