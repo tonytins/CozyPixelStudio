@@ -1,6 +1,8 @@
 name: "dev-desktop-builds"
 
 on:
+  schedule:
+    - cron: "0 0 1 * *"
   push:
     branches: [master, main]
   pull_request:
@@ -51,7 +53,7 @@ jobs:
         with:
           name: Windows-64bit
           path: ./build/windows-64bit/
-          retention-days: 14
+          retention-days: 20
 
   export-linux:
     name: Linux Export 🐧
@@ -84,7 +86,7 @@ jobs:
         with:
           name: Linux-64bit
           path: ./build/linux-64bit.tar.gz
-          retention-days: 14
+          retention-days: 20
 
   export-mac:
     name: Mac Export 🍎
@@ -133,4 +135,4 @@ jobs:
         with:
           name: Mac
           path: ./build/mac/CozyPixelStudio.dmg
-          retention-days: 14
+          retention-days: 20

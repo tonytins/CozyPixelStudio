@@ -89,7 +89,7 @@ dialog_text = "You have unsaved changes. If you proceed, the progress you have m
 margin_right = 243.0
 margin_bottom = 70.0
 resizable = true
-dialog_text = "Are you sure you want to exit Pixelorama?"
+dialog_text = "Are you sure you want to exit Cozy Pixel Studio?"
 
 [node name="QuitAndSaveDialog" type="ConfirmationDialog" parent="Dialogs"]
 margin_right = 330.0

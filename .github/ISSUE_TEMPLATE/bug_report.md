@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a bug in Pixelorama
+about: Report a bug in Cozy Pixel Studio
 title: ''
 labels: bug
 assignees: ''
@@ -8,10 +8,10 @@ assignees: ''
 ---
 
 <!-- Please search existing issues for potential duplicates before filing yours:
-https://github.com/Orama-Interactive/Pixelorama/issues?q=is%3Aissue
+https://github.com/tonytins/CozyPixelStudio/issues?q=is%3Aissue
 -->
 
-**Pixelorama version:**
+**Cozy Pixel Studio version:**
 <!-- Specify commit hash if using a non-official build. -->
 
 
