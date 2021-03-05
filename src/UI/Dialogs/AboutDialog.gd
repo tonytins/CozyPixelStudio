@@ -27,7 +27,7 @@ func _ready() -> void:
 
 
 func _on_AboutDialog_about_to_show() -> void:
-	window_title = tr("About Pixelorama") + " " + Global.current_version
+	window_title = tr("About Cozy Pixel Studio") + " " + Global.current_version
 
 	if Global.is_cjk(TranslationServer.get_locale()):
 		slogan_label.add_font_override("font", cjk_font)
@@ -83,7 +83,7 @@ func _on_Website_pressed() -> void:
 
 
 func _on_GitHub_pressed() -> void:
-	OS.shell_open("https://github.com/Orama-Interactive/Pixelorama")
+	OS.shell_open("https://github.com/tonytins/CozyPixelStudio")
 
 
 func _on_Donate_pressed() -> void:
@@ -92,8 +92,9 @@ func _on_Donate_pressed() -> void:
 
 func create_developers() -> void:
 	var dev_root := developers.create_item()
-	developers.create_item(dev_root).set_text(0, "  Manolis Papadeas (Overloaded) - " + tr("Lead Programmer"))
-	developers.create_item(dev_root).set_text(0, "  John Nikitakis (Erevos) - " + tr("UI Designer"))
+	developers.create_item(dev_root).set_text(0, "  Tony Bark (tonytins) - " + tr("Programmer"))
+	developers.create_item(dev_root).set_text(0, "  Manolis Papadeas (Overloaded) - " + tr("Pixelorama Programmer"))
+	developers.create_item(dev_root).set_text(0, "  John Nikitakis (Erevos) - " + tr("Pixelorama UI Designer"))
 
 
 func create_donors() -> void:

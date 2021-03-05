@@ -20,7 +20,7 @@ func _ready() -> void:
 	get_tree().set_auto_accept_quit(false)
 	setup_application_window_size()
 
-	Global.window_title = tr("untitled") + " - Pixelorama " + Global.current_version
+	Global.window_title = tr("untitled") + " - Cozy Pixel Studio " + Global.current_version
 
 	Global.current_project.layers[0].name = tr("Layer") + " 0"
 	Global.layers_container.get_child(0).label.text = Global.current_project.layers[0].name

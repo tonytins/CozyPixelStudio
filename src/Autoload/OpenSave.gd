@@ -21,7 +21,7 @@ func handle_loading_files(files : PoolStringArray) -> void:
 	for file in files:
 		file = file.replace("\\", "/")
 		var file_ext : String = file.get_extension().to_lower()
-		if file_ext == "pxo": # Pixelorama project file
+		if file_ext == "pxo": # Cozy Pixel Studio project file
 			open_pxo_file(file)
 		elif file_ext == "json" or file_ext == "gpl" or file_ext == "pal": # Palettes
 			Global.palette_container.on_palette_import_file_selected(file)
@@ -109,7 +109,7 @@ func open_pxo_file(path : String, untitled_backup : bool = false, replace_empty 
 	if not untitled_backup:
 		# Untitled backup should not change window title and save path
 		current_save_paths[Global.current_project_index] = path
-		Global.window_title = path.get_file() + " - Pixelorama " + Global.current_version
+		Global.window_title = path.get_file() + " - Cozy Pixel Studio " + Global.current_version
 		Global.save_sprites_dialog.current_path = path
 		# Set last opened project path and save
 		Global.config_cache.set_value("preferences", "last_project_path", path)
@@ -146,7 +146,7 @@ func open_old_pxo_file(file : File, new_project : Project, first_line : String) 
 		_file_status_version = file_ver_splitted[1]
 
 	if file_major_version == 0 and file_minor_version < 5:
-		Global.notification_label("File is from an older version of Pixelorama, as such it might not work properly")
+		Global.notification_label("File is from an older version of Cozy Pixel Studio, as such it might not work properly")
 
 	var new_guides := true
 	if file_major_version == 0:
@@ -330,7 +330,7 @@ func save_pxo_file(path : String, autosave : bool, use_zstd_compression := true,
 			project.has_changed = false
 		remove_backup(Global.current_project_index)
 		Global.notification_label("File saved")
-		Global.window_title = path.get_file() + " - Pixelorama " + Global.current_version
+		Global.window_title = path.get_file() + " - Cozy Pixel Studio " + Global.current_version
 
 		# Set last opened project path and save
 		Global.config_cache.set_value("preferences", "last_project_path", path)
@@ -528,7 +528,7 @@ func set_new_tab(project : Project, path : String) -> void:
 	Global.tabs.current_tab = Global.tabs.get_tab_count() - 1
 	Global.canvas.camera_zoom()
 
-	Global.window_title = path.get_file() + " (" + tr("imported") + ") - Pixelorama " + Global.current_version
+	Global.window_title = path.get_file() + " (" + tr("imported") + ") - Cozy Pixel Studio " + Global.current_version
 	if project.has_changed:
 		Global.window_title = Global.window_title + "(*)"
 	var file_name := path.get_basename().get_file()
@@ -617,7 +617,7 @@ func reload_backup_file(project_paths : Array, backup_paths : Array) -> void:
 		# If project path is the same as backup save path -> the backup was untitled
 		if project_paths[i] != backup_paths[i]: # If the user has saved
 			current_save_paths[i] = project_paths[i]
-			Global.window_title = project_paths[i].get_file() + " - Pixelorama(*) " + Global.current_version
+			Global.window_title = project_paths[i].get_file() + " - Cozy Pixel Studio(*) " + Global.current_version
 			Global.current_project.has_changed = true
 
 	Global.notification_label("Backup reloaded")

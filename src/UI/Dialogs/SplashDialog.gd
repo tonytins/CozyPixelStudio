@@ -21,7 +21,7 @@ func _on_SplashDialog_about_to_show() -> void:
 
 	if Global.config_cache.has_section_key("preferences", "startup"):
 		show_on_startup_button.pressed = !Global.config_cache.get_value("preferences", "startup")
-	window_title = "Pixelorama" + " " + Global.current_version
+	window_title = "Cozy Pixel Studio" + " " + Global.current_version
 
 	chosen_artwork = artworks.keys()[randi() % artworks.size()]
 	splash_art_texturerect.texture = artworks[chosen_artwork][0]
@@ -59,7 +59,7 @@ func _on_PatreonButton_pressed() -> void:
 
 
 func _on_GithubButton_pressed() -> void:
-	OS.shell_open("https://github.com/Orama-Interactive/Pixelorama")
+	OS.shell_open("https://github.com/tonytins/CozyPixelStudio")
 
 
 func _on_DiscordButton_pressed() -> void:

@@ -2,9 +2,9 @@ name: "dev-desktop-builds"
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, main ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, main ]
     paths-ignore: 
     - "Translations/*"
     - "installer/*.pot"
@@ -13,7 +13,7 @@ on:
 env:
   GODOT_VERSION: 3.2.3
   GODOT_VERSION_MAC: 3.2.2
-  EXPORT_NAME: Pixelorama
+  EXPORT_NAME: CozyPixelStudio
 
 jobs:
   export-windows:
@@ -98,7 +98,7 @@ jobs:
       - name: Setup environment 🔧
         run: |
           export GODOT_VERSION=3.2.2
-          export EXPORT_NAME=Pixelorama
+          export EXPORT_NAME=CozyPixelStudio
       - name: Download and extract export templates 💾
         run: |
           mkdir -v -p ~/.local/share/godot/templates/${GODOT_VERSION_MAC}.stable
@@ -115,23 +115,23 @@ jobs:
         run: |
           chown runner ./Godot
           chmod +x ./Godot
-          ./Godot -v --export "Mac OSX" ./build/mac/Pixelorama.zip
+          ./Godot -v --export "Mac OSX" ./build/mac/CozyPixelStudio.zip
       - name: Make application executable 🔧
         run: |
-          unzip -a ./build/mac/Pixelorama.zip -d ./build/mac
-          chmod +x ./build/mac/Pixelorama.app/Contents/MacOS/Pixelorama
-          rm ./build/mac/Pixelorama.zip
+          unzip -a ./build/mac/CozyPixelStudio.zip -d ./build/mac
+          chmod +x ./build/mac/CozyPixelStudio.app/Contents/MacOS/CozyPixelStudio
+          rm ./build/mac/CozyPixelStudio.zip
       - name: Fix application icon 🖼
-        run: sips -s format icns ./build/mac/Pixelorama.app/Contents/Resources/icon.icns --out ./build/mac/Pixelorama.app/Contents/Resources/icon.icns
+        run: sips -s format icns ./build/mac/CozyPixelStudio.app/Contents/Resources/icon.icns --out ./build/mac/CozyPixelStudio.app/Contents/Resources/icon.icns
       - name: Copy pixelorama_data folder 📁
         run: |
-          cp -R ./pixelorama_data ./build/mac/Pixelorama.app/Contents/MacOS
-          rm ./build/mac/Pixelorama.app/Contents/MacOS/pixelorama_data/.gdignore
+          cp -R ./pixelorama_data ./build/mac/CozyPixelStudio.app/Contents/MacOS
+          rm ./build/mac/CozyPixelStudio.app/Contents/MacOS/pixelorama_data/.gdignore
       - name: Create DMG archive 🔧
-        run: hdiutil create -size 70m -srcfolder ./build/mac -volname Pixelorama ./build/mac/Pixelorama.dmg
+        run: hdiutil create -size 70m -srcfolder ./build/mac -volname CozyPixelStudio ./build/mac/CozyPixelStudio.dmg
       - name: Upload Artifact 🚀
         uses: actions/upload-artifact@v2
         with:
           name: Mac
-          path: ./build/mac/Pixelorama.dmg
+          path: ./build/mac/CozyPixelStudio.dmg
           retention-days: 14

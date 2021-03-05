@@ -14,6 +14,7 @@ border_color = Color( 0.403922, 0.403922, 0.403922, 1 )
 expand_margin_top = 20.0
 
 [node name="SplashDialog" type="WindowDialog"]
+visible = true
 margin_right = 640.0
 margin_bottom = 583.0
 rect_min_size = Vector2( 640, 583 )
@@ -190,10 +191,11 @@ rect_min_size = Vector2( 4, 0 )
 [node name="CopyrightLabel" type="Label" parent="Contents"]
 margin_top = 554.0
 margin_right = 640.0
-margin_bottom = 567.0
+margin_bottom = 583.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 7 )
-text = "©2019-present by Orama Interactive and contributors"
+text = "©2021-present by Tony Bark
+©2019-present by Orama Interactive and contributors"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Contents/CopyrightLabel"]
